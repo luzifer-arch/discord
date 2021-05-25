@@ -1,0 +1,23 @@
+pkgbase = discord
+	pkgdesc = All-in-one voice and text chat for gamers that's free and secure.
+	pkgver = 0.0.15
+	pkgrel = 1
+	url = https://discordapp.com
+	arch = x86_64
+	license = custom
+	depends = libnotify
+	depends = libxss
+	depends = nspr
+	depends = nss
+	depends = gtk3
+	optdepends = libpulse: Pulseaudio support
+	optdepends = xdg-utils: Open files
+	source = https://dl.discordapp.net/apps/linux/0.0.15/discord-0.0.15.tar.gz
+	source = LICENSE.html::https://discordapp.com/terms
+	source = OSS-LICENSES.html::https://discordapp.com/licenses
+	sha512sums = 4f220ecd0e0c9fcd793ed065055479391506d9401b75ca541cde4136d0290f2720fccca87139091faf269fdb2c020adb5b7333710a31ca603ce8552f3dd4841b
+	sha512sums = c45e3556725116ebbb63476d2c63e824156cb475ead078fac312bfaa24a17888d51bdd732669fe3ff674cd94baef681897b7dd84a48a8a567694414bca3ae298
+	sha512sums = 438b1efcb2af16689c769cb3dbfa0b8f143466d149d9b42dfccb199f6eeee7e5275a00f3be48de5f5c2efd5c36ff46e3b52b83c51b3562e387a9d8ce387ce3c8
+
+pkgname = discord
+

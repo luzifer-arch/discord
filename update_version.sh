@@ -34,6 +34,8 @@ sed -i \
 
 # Update source hashes
 updpkgsums
+# Remove checksums for HTML files (they change all the time)
+sed -i -e "/sha512sums/,/)/ {s/ '.*'/ 'SKIP'/}" PKGBUILD
 
 # Update .SRCINFO
 makepkg --printsrcinfo >.SRCINFO

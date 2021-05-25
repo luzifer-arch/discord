@@ -16,8 +16,8 @@ source=("https://dl.discordapp.net/apps/linux/$pkgver/$pkgname-$pkgver.tar.gz"
 	'LICENSE.html::https://discordapp.com/terms'
 	'OSS-LICENSES.html::https://discordapp.com/licenses')
 sha512sums=('4f220ecd0e0c9fcd793ed065055479391506d9401b75ca541cde4136d0290f2720fccca87139091faf269fdb2c020adb5b7333710a31ca603ce8552f3dd4841b'
-            'c45e3556725116ebbb63476d2c63e824156cb475ead078fac312bfaa24a17888d51bdd732669fe3ff674cd94baef681897b7dd84a48a8a567694414bca3ae298'
-            '438b1efcb2af16689c769cb3dbfa0b8f143466d149d9b42dfccb199f6eeee7e5275a00f3be48de5f5c2efd5c36ff46e3b52b83c51b3562e387a9d8ce387ce3c8')
+            'eec33beb8259bce6f6a5dcaf44ae4715644ded0eba7f8c90427efccf78bad6a86f7c46b105731387ceccd25fd89e213ee82a2ef38f5f16d32ee049f69564be87'
+            '394b94635b6368b87abff7e8203bf3b64f9bb12eb9d81cbb66762c75d3d8eb52f46d71ca0975e077a7596b5e376914613c833a0ca6676a5217d41b44258793f3')
 
 prepare() {
 	cd $_pkgname

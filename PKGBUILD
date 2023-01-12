@@ -3,7 +3,7 @@
 
 pkgname=discord
 _pkgname=Discord
-pkgver=0.0.22
+pkgver=0.0.23
 pkgrel=1
 pkgdesc="All-in-one voice and text chat for gamers that's free and secure."
 arch=('x86_64')
@@ -15,7 +15,7 @@ optdepends=('libpulse: Pulseaudio support'
 source=("https://dl.discordapp.net/apps/linux/$pkgver/$pkgname-$pkgver.tar.gz"
 	'LICENSE.html::https://discordapp.com/terms'
 	'OSS-LICENSES.html::https://discordapp.com/licenses')
-sha512sums=('96c8486577bee7ae165bf96aab50c0733d83a2d9435357d9a4d9a3e9f3225ae6a7bf46e1a7d8b419ecc7ab4e270755332621a4f786ddb89a842379f5da40b271'
+sha512sums=('d03b27180c95ca74c93323090ce5c1e4351577d27184cfbf5525439052505ba198fafbd4b1489f97ce4c103bc35d1cfb4cdb1c32fc9c80bc55e2373b7a894a39'
             'SKIP'
             'SKIP')
 

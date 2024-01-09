@@ -13,7 +13,7 @@
 pkgname=discord
 _pkgname=discord
 _electron=22
-pkgver=0.0.39
+pkgver=0.0.40
 pkgrel=1
 pkgdesc="Discord using system provided electron (v${_electron}) for increased security and performance"
 arch=('x86_64')
@@ -29,7 +29,7 @@ optdepends=(
   'xdg-utils: Open files'
 )
 source=("https://dl.discordapp.net/apps/linux/${pkgver}/discord-${pkgver}.tar.gz")
-sha512sums=('9f18aea5d82f5db4efa9db9babbc440b24e47dc80df18df5cc58d99d677f1c0863df21ed96d69896785f8fbe0dc0ff1f7317398b8f39606289da79f5a38074f1')
+sha512sums=('64fd9cf5c8ebb55cd5cd7c1fc0ae04a7e7cb9df6cc18a7c992f1156f46dac5415d87003622078e5d4aa0e48234c3d69d0d12633a57d55291e359cbb40511ca3a')
 
 prepare() {
   # create launcher script

@@ -1,6 +1,6 @@
 pkgbase = discord
 	pkgdesc = Discord using system provided electron (v22) for increased security and performance
-	pkgver = 0.0.42
+	pkgver = 0.0.43
 	pkgrel = 1
 	url = https://discord.com
 	arch = x86_64
@@ -19,7 +19,7 @@ pkgbase = discord
 	provides = discord
 	conflicts = discord
 	options = !strip
-	source = https://dl.discordapp.net/apps/linux/0.0.42/discord-0.0.42.tar.gz
-	sha512sums = ec11acfe3f96762cd7c230eb38e098818d9ebf32ff530f061ed3dbb5d08c3303bb4d20206510e3621f21ba89c08474367c13e7fd3c46f80b7229db37fb81db6c
+	source = https://dl.discordapp.net/apps/linux/0.0.43/discord-0.0.43.tar.gz
+	sha512sums = 2780079975c144ff510973d6149b34c691d1cb0784ef4b8ac6663280263d3b10ca900c9966728579973be377f6b42f8c17ed1038fdef9b699672dddc53e08055
 
 pkgname = discord

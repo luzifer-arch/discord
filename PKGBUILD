@@ -13,8 +13,8 @@
 pkgname=discord
 _pkgname=discord
 _electron=30
-pkgver=0.0.52
-pkgrel=2
+pkgver=0.0.53
+pkgrel=1
 pkgdesc="Discord using system provided electron (v${_electron}) for increased security and performance"
 arch=('x86_64')
 provides=("${_pkgname}")
@@ -34,10 +34,10 @@ source=(
   'LICENSE.html::https://discord.com/terms'
   'OSS-LICENSES.html::https://discord.com/licenses'
 )
-sha512sums=('42ff4b59a0dd846f06a297a1a8b5a1e28f37daa6951b4ce597d103492458c5ae90f69545908cd41238c5ed91b249ad2dd9b9cec3ef4feeb9ad22245c692eaa72'
-  '140b8fd340caf1069fcde0d23c8058488a59518b0b55db70290bd2c50b6c3c1c28978fe7d3a6e8feff65cec990f41e34cf68876acfc0183c51f6a58e9f8cb668'
-  'SKIP'
-  'SKIP')
+sha512sums=('dfc92d477397324383a4656a770c0aac153527002b07bac56ec5e3947443f2ab6d0958b2c508d6cf5ed2ecaff83b64616387b7a2459d340b438c3d73ab0f6f83'
+            '140b8fd340caf1069fcde0d23c8058488a59518b0b55db70290bd2c50b6c3c1c28978fe7d3a6e8feff65cec990f41e34cf68876acfc0183c51f6a58e9f8cb668'
+            'SKIP'
+            'SKIP')
 
 prepare() {
   # fix the .desktop file

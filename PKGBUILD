@@ -13,7 +13,7 @@
 pkgname=discord
 _pkgname=discord
 _electron=32
-pkgver=0.0.75
+pkgver=0.0.76
 pkgrel=1
 pkgdesc="Discord using system provided electron (v${_electron}) for increased security and performance"
 arch=('x86_64')
@@ -34,7 +34,7 @@ source=(
   'LICENSE.html::https://discord.com/terms'
   'OSS-LICENSES.html::https://discord.com/licenses'
 )
-sha512sums=('3c05f5ca4faebbe4973ffd977a17da6f398a1725fd3be18d9b025faf3ed7b99cb71e7b3219147492e1180b7b341b05886aeeb39f15a85b180b633db56c9821b7'
+sha512sums=('3a5bdd4ce366f142c40e6acc4ab9faf1f61480c8aaa984abb3c37755e586ee2143c083af561595ff18f6587d3bceffe9d27c9b1069134abd612f63e7db636ee6'
             '140b8fd340caf1069fcde0d23c8058488a59518b0b55db70290bd2c50b6c3c1c28978fe7d3a6e8feff65cec990f41e34cf68876acfc0183c51f6a58e9f8cb668'
             'SKIP'
             'SKIP')

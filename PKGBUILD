@@ -12,9 +12,9 @@
 
 pkgname=discord
 _pkgname=discord
-_electron=32
+_electron=34
 pkgver=0.0.90
-pkgrel=1
+pkgrel=2
 pkgdesc="Discord using system provided electron (v${_electron}) for increased security and performance"
 arch=('x86_64')
 provides=("${_pkgname}")

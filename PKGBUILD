@@ -11,65 +11,46 @@
 # Based off the discord community repo PKGBUILD by Filipe Laíns (FFY00)
 
 pkgname=discord
-_pkgname=discord
-_electron=34
+_pkgname=Discord
 pkgver=0.0.91
-pkgrel=1
-pkgdesc="Discord using system provided electron (v${_electron}) for increased security and performance"
+pkgrel=2
+pkgdesc="All-in-one voice and text chat for gamers"
 arch=('x86_64')
 provides=("${_pkgname}")
 conflicts=("${_pkgname}")
 url='https://discord.com'
 license=('custom')
 options=('!strip')
-depends=("electron${_electron}" 'libnotify' 'libxss' 'nspr' 'nss' 'gtk3')
-makedepends=('asar')
+depends=('libnotify' 'libxss' 'nspr' 'nss' 'gtk3')
 optdepends=(
   'libpulse: Pulseaudio support'
   'xdg-utils: Open files'
 )
-source=(
-  "https://dl.discordapp.net/apps/linux/${pkgver}/discord-${pkgver}.tar.gz"
-  'discord-launcher.sh'
-  'LICENSE.html::https://discord.com/terms'
-  'OSS-LICENSES.html::https://discord.com/licenses'
-)
-sha512sums=('881008978374f4a928ad6b171021ac2cc3ffb1167447e835dfde828e1a14e63debdbd96241d9c7f7e925fe90a93e576a608cb42c8a79076cc399b079b5fa1d8c'
-            '140b8fd340caf1069fcde0d23c8058488a59518b0b55db70290bd2c50b6c3c1c28978fe7d3a6e8feff65cec990f41e34cf68876acfc0183c51f6a58e9f8cb668'
-            'SKIP'
-            'SKIP')
+source=("https://dl.discordapp.net/apps/linux/${pkgver}/${pkgname}-${pkgver}.tar.gz")
+sha512sums=('881008978374f4a928ad6b171021ac2cc3ffb1167447e835dfde828e1a14e63debdbd96241d9c7f7e925fe90a93e576a608cb42c8a79076cc399b079b5fa1d8c')
 
 prepare() {
+  cd $_pkgname
+
   # fix the .desktop file
-  sed -i "s|Exec=.*|Exec=/usr/bin/${_pkgname}|" Discord/$_pkgname.desktop
-  echo 'Path=/usr/bin' >>Discord/$_pkgname.desktop
-
-  # patch launcher electron version
-  sed -i "s|@ELECTRON_VER@|${_electron}|" discord-launcher.sh
-
-  cd "${srcdir}/Discord"
-
-  # use system electron
-  asar e resources/app.asar resources/app
-  rm resources/app.asar
-  sed -i "s|process.resourcesPath|'/usr/share/${_pkgname}/resources'|" resources/app/app_bootstrap/buildInfo.js
-  sed -i "s|exeDir,|'/usr/share/pixmaps',|" resources/app/app_bootstrap/autoStart/linux.js
-  sed -i -E "s|resourcesPath = _path.+;|resourcesPath = '/usr/share/${_pkgname}/resources';|" resources/app/common/paths.js
-  asar p resources/app resources/app.asar
-  rm -rf resources/app
+  sed -i "s|Exec=.*|Exec=/usr/bin/$pkgname|" $pkgname.desktop
+  echo 'Path=/usr/bin' >>$pkgname.desktop
 }
 
 package() {
-  # install the launch script
-  install -Dm 755 discord-launcher.sh "${pkgdir}/usr/bin/${_pkgname}"
-
   # copy resources into patched path
-  install -d "${pkgdir}/usr/share/${_pkgname}/resources"
-  cp -r Discord/resources/* "${pkgdir}/usr/share/${_pkgname}/resources/"
+  install -d "$pkgdir"/opt/$pkgname
+  cp -a $_pkgname/. "$pkgdir"/opt/$pkgname
 
-  install -Dm 644 Discord/$_pkgname.png "${pkgdir}/usr/share/pixmaps/${_pkgname}.png"
-  install -Dm 644 Discord/$_pkgname.desktop "${pkgdir}/usr/share/applications/${_pkgname}.desktop"
+  chmod 755 "$pkgdir"/opt/$pkgname/$_pkgname
 
-  # install licenses
-  install -Dm 644 -t "${pkgdir}/usr/share/licenses/${_pkgname}" LICENSE.html OSS-LICENSES.html
+  rm "$pkgdir"/opt/$pkgname/postinst.sh
+
+  install -d "$pkgdir"/usr/{bin,share/{pixmaps,applications}}
+  ln -s /opt/$pkgname/$_pkgname "$pkgdir"/usr/bin/$pkgname
+  ln -s /opt/$pkgname/discord.png "$pkgdir"/usr/share/pixmaps/$pkgname.png
+  ln -s /opt/$pkgname/$pkgname.desktop "$pkgdir"/usr/share/applications/$pkgname.desktop
+
+  # setuid on chrome-sandbox
+  chmod u+s "$pkgdir"/opt/$pkgname/chrome-sandbox
 }

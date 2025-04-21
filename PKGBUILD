@@ -12,7 +12,7 @@
 
 pkgname=discord
 _pkgname=Discord
-pkgver=0.0.91 # renovate: depName=discord
+pkgver=0.0.91 # renovate: depName=discord/latest
 pkgrel=2
 pkgdesc="All-in-one voice and text chat for gamers"
 arch=('x86_64')

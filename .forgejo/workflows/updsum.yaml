@@ -1,0 +1,38 @@
+---
+name: CI Workflow
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  docker-publish:
+    defaults:
+      run:
+        shell: bash
+
+    runs-on: forgejo
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          show-progress: false
+
+      - name: Update PKGBUILD with helper script
+        run: updpkgsums-builder
+
+      - uses: stefanzweifel/git-auto-commit-action@b863ae1933cb653a53c021fe36dbb774e1fb9403 # v5.2.0
+        with:
+          commit_author: Luzifer-CI <ci@luzifer.io>
+          commit_message: Update PKGBUILD checksums
+          commit_user_name: Luzifer-CI
+          commit_user_email: ci@luzifer.io
+          file_pattern: PKGBUILD
